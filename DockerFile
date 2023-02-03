@@ -1,5 +1,4 @@
-FROM ubuntu
-
-RUN /bin/bash -c 'echo This would generally be apt-get or other system configuration'
-ENV myCustomer="This is a sample." \
-    otherEnvVar="This is another environment variable."
+FROM anapsix/alpine-java 
+LABEL maintainer="shanem@liatrio.com"
+COPY /target/spring-petclinic-1.5.1.jar /home/spring-petclinic-1.5.1.jar 
+CMD ["java","-jar","/home/spring-petclinic-1.5.1.jar"]
